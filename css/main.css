@@ -6,17 +6,16 @@ header{
 p{
 	font-family: verdana;
 }
+
 .negro{
   background-color: black;
   color:white;
 }
 .verde{
-  background-image: url(../img/bebe.png);
   background-size: contain; 
   background-color: green;
 }
 .rojo{
-  background-image: url(../img/helado.jpg);
   background-size: contain; 
   background-color: red;
 }
@@ -26,10 +25,47 @@ td{
 }
 
 div{
-	padding-right: 40px
+	padding-left: 50px
 }
 
 button{
-	padding: 20px
+	padding-left: 100px;
 	font-family: verdana;
+  border: 3px solid #555;
+  text-decoration: none;
+  padding: 10px;
+  font-family: arial;
+  text-transform: uppercase;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 800;
+  font-size: 25px;
+  color: black;
+  background-color: #9b0e0e;
 }
+button:hover{
+  color: #9b0e0e;
+  background-color: #bc6355;
+  text-decoration: none;
+}
+
+#paredes{
+  background-image: url(../img/ladrillo.png);
+  background-size: contain; 
+}
+
+#abajo1{
+  background-image: url(../img/abajo.png);
+  background-size: contain; 
+}
+
+#izquierda1{
+  background-image: url(../img/izquierda.png);
+  background-size: contain; 
+}
+
+#derecha1{
+  background-image: url(../img/derecha.png);
+  background-size: contain; 
+}
+

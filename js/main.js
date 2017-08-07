@@ -1,3 +1,15 @@
+window.onload = function(){
+    //document.onkeypress = chars;
+    document.onkeydownn = chars;
+}
+
+function chars(evento){
+    if(window.event)
+        evento=window.event;
+
+    document.getElementById("string").innerHTML=evento.keyCode;
+}
+
 var mapa=[
 "******************",
 "*_________*______*",
@@ -21,6 +33,7 @@ var tabla = document.createElement('table');
             var celda = document.createElement('td');
             if (mapa[i][j]=="*") {
                 celda.setAttribute('class', 'negro');
+                celda.setAttribute('id','paredes');
                 }else if(mapa[i][j]=="o"){
                 	celda.setAttribute('class', 'verde');
                 }else if(mapa[i][j]=="W"){
@@ -38,6 +51,17 @@ var tabla = document.createElement('table');
 
 juego();
 
-var adelante = function(){
-	
+var x=0;
+var y=0;
+
+var turnRight = function(){
+
+}
+
+var turnLeft = function(){
+
+}
+
+var moveForward = function(){
+
 }
