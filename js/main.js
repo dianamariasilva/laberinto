@@ -26,13 +26,12 @@ function juego(){
 tablero.innerHTML = '';
 
 var tabla = document.createElement('table');
-    tabla.border = "1";
+    tabla.border = "0";
     for (var i = 0; i < mapa.length; i++) {
         var fila = document.createElement('tr');
         for (var j = 0; j < mapa[i].length; j++) {
             var celda = document.createElement('td');
             if (mapa[i][j]=="*") {
-                celda.setAttribute('class', 'negro');
                 celda.setAttribute('id','paredes');
                 }else if(mapa[i][j]=="o"){
                 	celda.setAttribute('class', 'verde');
