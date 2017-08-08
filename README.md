@@ -1,4 +1,4 @@
-# laberinto
+# Laberinto
 Ejercicio Evaluado
 
 > 1er PASO

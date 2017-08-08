@@ -1,7 +1,8 @@
 var derecha = document.getElementById('derecha');
 var izquierda= document.getElementById('izquierda');
 var adelante = document.getElementById('adelante');
-var solucion= document.getElementById('d')
+var solucion= document.getElementById('d');
+var tablero= document.getElementById('tablero');
 
 var mapa=[
 "******************",
@@ -13,14 +14,14 @@ var mapa=[
 "*_********__**_*_*",
 "*____*______*__*_*",
 "*_**_*__*****_**_*",
-"*o*__*________**W*",
+"*1*__*________**W*",
 "******************"];
+
 function juego(){
-tablero.innerHTML = '';
-
-document.getElementById("header").style.transform = "rotate(10deg)";
-
-var tabla = document.createElement('table');
+    console.log('Current map', mapa);
+    tablero.innerHTML = '';
+    document.getElementById("header").style.transform = "rotate(10deg)";
+    var tabla = document.createElement('table');
     tabla.border = "0";
     for (var i = 0; i < mapa.length; i++) {
         var fila = document.createElement('tr');
@@ -28,8 +29,8 @@ var tabla = document.createElement('table');
             var celda = document.createElement('td');
             if (mapa[i][j]=="*") {
                 celda.setAttribute('id','wall');
-                }else if(mapa[i][j]=="o"){
-                	celda.setAttribute('class', 'inicio');    
+                }else if(mapa[i][j]==1|| mapa[i][j]==2 || mapa[i][j]==3||mapa[i][j]==4){
+                	celda.setAttribute('class', 'inicio');   
                 }else if(mapa[i][j]=="W"){
                 	celda.setAttribute('class', 'fin');	
                 }else if(mapa[i][j]=="_"){
@@ -47,28 +48,42 @@ var tabla = document.createElement('table');
 
 juego();
 
-
+var y;
 var turnRight = function(){
-    var x = 0; 
-    var y = 0;
-    var cont;
     for (var i = 0; i < mapa.length; i++) {
         for (var j = 0; j < mapa[i].length; j++) {
-            if(mapa[i][j]=="o"){
-                x=i;
-                y=j;
-                x++
+            if(mapa[i][j]==1 || mapa[i][j]==2 || mapa[i][j]==3 ){
+                mapa[i] = mapa[i].replace(/[0-9]/, parseInt(mapa[i][j])+1);
+            }else if(mapa[i][j]==4){
+                mapa[i] = mapa[i].replace(/[0-9]/, '1');
             }
         }
     }
+    juego();
 }
-// otraSol.onclick= function(){
-//   myhappyfunction();
-// }
+
+derecha.onclick=function(){
+    turnRight();
+}
+
 
 var turnLeft = function(){
-
+    for (var i = 0; i < mapa.length; i++) {
+        for (var j = 0; j < mapa[i].length; j++) {
+            if(mapa[i][j]==4 || mapa[i][j]==3 || mapa[i][j]==2 ){
+                mapa[i] = mapa[i].replace(/[0-9]/, parseInt(mapa[i][j])-1);
+            }else if(mapa[i][j]==1){
+                mapa[i] = mapa[i].replace(/[0-9]/, '1');
+            }
+        }
+    }
+    juego();
 }
+
+izquierda.onclick=function(){
+    turnLeft();
+}
+
 
 var moveForward = function(){
 
