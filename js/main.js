@@ -19,16 +19,19 @@ var mapa=[
 
 function juego(){
     console.log('Current map', mapa);
-    tablero.innerHTML = '';
+    tablero.innerHTML = ''; //limpiar tablero
     document.getElementById("header").style.transform = "rotate(10deg)";
     var tabla = document.createElement('table');
     tabla.border = "0";
+    //crea strings en lista
     for (var i = 0; i < mapa.length; i++) {
         var fila = document.createElement('tr');
+        //crea elementos en string
         for (var j = 0; j < mapa[i].length; j++) {
             var celda = document.createElement('td');
             if (mapa[i][j]=="*") {
                 celda.setAttribute('id','wall');
+                // numeros de posiciones --> arriba, abajo, izq ,der
                 }else if(mapa[i][j]==1|| mapa[i][j]==2 || mapa[i][j]==3||mapa[i][j]==4){
                 	celda.setAttribute('class', 'inicio');   
                 }else if(mapa[i][j]=="W"){
@@ -53,12 +56,14 @@ var turnRight = function(){
     for (var i = 0; i < mapa.length; i++) {
         for (var j = 0; j < mapa[i].length; j++) {
             if(mapa[i][j]==1 || mapa[i][j]==2 || mapa[i][j]==3 ){
+                //Busca un numero entero en los strings de la lista y aumenta +1 al numero que encuentra hasta llegar a 4 de ahí retorna a 1
                 mapa[i] = mapa[i].replace(/[0-9]/, parseInt(mapa[i][j])+1);
             }else if(mapa[i][j]==4){
                 mapa[i] = mapa[i].replace(/[0-9]/, '1');
             }
         }
     }
+    //probar que funcione el boton derecha en consola;
     juego();
 }
 
@@ -73,10 +78,11 @@ var turnLeft = function(){
             if(mapa[i][j]==4 || mapa[i][j]==3 || mapa[i][j]==2 ){
                 mapa[i] = mapa[i].replace(/[0-9]/, parseInt(mapa[i][j])-1);
             }else if(mapa[i][j]==1){
-                mapa[i] = mapa[i].replace(/[0-9]/, '1');
+                mapa[i] = mapa[i].replace(/[0-9]/, '4');
             }
         }
     }
+    //probar que funcione el boton izquierda en consola;
     juego();
 }
 
@@ -86,5 +92,16 @@ izquierda.onclick=function(){
 
 
 var moveForward = function(){
-
+    for (var i = 0; i < mapa.length; i++) {
+        for (var j = 0; j < mapa[i].length; j++) {
+            if(mapa[i][j]==1 && mapa[i-1][j]=="_" && mapa[i-1][j]!="*"){
+                mapa[i]=mapa[i].substring(0,1)+'_'+mapa[i+1].substring(2,17);
+                mapa[i-1]=mapa[i-1].substring(0,1)+'1'+mapa[i].substring(2,17)
+            }
+        }
+    }
+    juego();
+}
+adelante.onclick=function(){
+    moveForward();
 }
