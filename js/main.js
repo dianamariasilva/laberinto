@@ -95,8 +95,8 @@ var moveForward = function(){
     for (var i = 0; i < mapa.length; i++) {
         for (var j = 0; j < mapa[i].length; j++) {
             if(mapa[i][j]==1 && mapa[i-1][j]=="_" && mapa[i-1][j]!="*"){
-                mapa[i]=mapa[i].substring(0,1)+'_'+mapa[i+1].substring(2,17);
-                mapa[i-1]=mapa[i-1].substring(0,1)+'1'+mapa[i].substring(2,17)
+                mapa[i]=mapa[i].substring(0,1)+'_'+mapa[i].substring(2,18);
+                mapa[i-1]=mapa[i-1].substring(0,1)+'1'+mapa[i-1].substring(2,18);
             }
         }
     }
