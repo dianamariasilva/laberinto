@@ -18,7 +18,7 @@ var mapa=[
 function juego(){
 tablero.innerHTML = '';
 
-document.getElementById("header").style.transform = "rotate(20deg)";
+document.getElementById("header").style.transform = "rotate(10deg)";
 
 var tabla = document.createElement('table');
     tabla.border = "0";
@@ -29,9 +29,9 @@ var tabla = document.createElement('table');
             if (mapa[i][j]=="*") {
                 celda.setAttribute('id','wall');
                 }else if(mapa[i][j]=="o"){
-                	celda.setAttribute('class', 'verde');    
+                	celda.setAttribute('class', 'inicio');    
                 }else if(mapa[i][j]=="W"){
-                	celda.setAttribute('class', 'rojo');	
+                	celda.setAttribute('class', 'fin');	
                 }else if(mapa[i][j]=="_"){
 
                 }

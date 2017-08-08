@@ -6,7 +6,7 @@ header{
 #header {
     margin: auto;
     border: double;
-    width: 400px;
+    width: 500px;
     height: 50px;
     text-align: center;
     padding: 0em 3em;
@@ -25,11 +25,11 @@ p{
 	font-family: verdana;
 }
 
-.verde{
+.inicio{
   background-image: url(../img/perro.png);
   background-size: contain;
 }
-.rojo{
+.fin{
   background-image: url(../img/hueso.png);
   background-size: contain; 
 }
