@@ -1,14 +1,7 @@
-window.onload = function(){
-    //document.onkeypress = chars;
-    document.onkeydownn = chars;
-}
-
-function chars(evento){
-    if(window.event)
-        evento=window.event;
-
-    document.getElementById("string").innerHTML=evento.keyCode;
-}
+var derecha = document.getElementById('derecha');
+var izquierda= document.getElementById('izquierda');
+var adelante = document.getElementById('adelante');
+var solucion= document.getElementById('d')
 
 var mapa=[
 "******************",
@@ -25,6 +18,8 @@ var mapa=[
 function juego(){
 tablero.innerHTML = '';
 
+document.getElementById("header").style.transform = "rotate(20deg)";
+
 var tabla = document.createElement('table');
     tabla.border = "0";
     for (var i = 0; i < mapa.length; i++) {
@@ -32,11 +27,13 @@ var tabla = document.createElement('table');
         for (var j = 0; j < mapa[i].length; j++) {
             var celda = document.createElement('td');
             if (mapa[i][j]=="*") {
-                celda.setAttribute('id','paredes');
+                celda.setAttribute('id','wall');
                 }else if(mapa[i][j]=="o"){
-                	celda.setAttribute('class', 'verde');
+                	celda.setAttribute('class', 'verde');    
                 }else if(mapa[i][j]=="W"){
                 	celda.setAttribute('class', 'rojo');	
+                }else if(mapa[i][j]=="_"){
+
                 }
             var p = document.createElement('p');
             celda.appendChild(p);
@@ -50,12 +47,24 @@ var tabla = document.createElement('table');
 
 juego();
 
-var x=0;
-var y=0;
 
 var turnRight = function(){
-
+    var x = 0; 
+    var y = 0;
+    var cont;
+    for (var i = 0; i < mapa.length; i++) {
+        for (var j = 0; j < mapa[i].length; j++) {
+            if(mapa[i][j]=="o"){
+                x=i;
+                y=j;
+                x++
+            }
+        }
+    }
 }
+// otraSol.onclick= function(){
+//   myhappyfunction();
+// }
 
 var turnLeft = function(){
 

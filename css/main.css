@@ -3,27 +3,51 @@ header{
 	text-align: center;
 }
 
+#header {
+    margin: auto;
+    border: double;
+    width: 400px;
+    height: 50px;
+    text-align: center;
+    padding: 0em 3em;
+    margin: 1em 25%;
+    background: #B40486;
+    font-family: fantasy;
+    font-size: 300%;
+    padding: 20px;
+    text-align: center;
+}
+body{
+  background-image: url(../img/fondo.jpg);
+}
+
 p{
 	font-family: verdana;
 }
 
 .verde{
-  background-size: contain; 
-  background-color: grey;
+  background-image: url(../img/perro.png);
+  background-size: contain;
 }
 .rojo{
-  background-size: contain; 
-  background-color: black;
-  background-image: url(../img/periodico.jpg);
+  background-image: url(../img/hueso.png);
   background-size: contain; 
 }
 td{
   width: 50px;
   height: 50px;
+  border: black;
+  border-radius: 10px;
 }
 
 div{
-	padding-left: 50px
+	padding-left: 50px;
+}
+
+#in{
+  text-decoration: overline; 
+  text-align:center;
+  background: #C39BD3;
 }
 
 button{
@@ -33,13 +57,12 @@ button{
   text-decoration: none;
   padding: 10px;
   font-family: arial;
-  text-transform: uppercase;
   padding-left: 10px;
   padding-right: 10px;
   font-weight: 800;
   font-size: 25px;
-  color: black;
-  background-color: #9b0e0e;
+  color: white;
+  background-color: #610B4B;
 }
 button:hover{
   color: #9b0e0e;
@@ -47,22 +70,23 @@ button:hover{
   text-decoration: none;
 }
 
-#paredes{
+#wall{
   background-image: url(../img/muro.jpg);
   background-size: contain; 
+  border:4px solid black;
 }
 
-#abajo1{
+.abajo1{
   background-image: url(../img/abajo.png);
   background-size: contain; 
 }
 
-#izquierda1{
+.izquierda1{
   background-image: url(../img/izquierda.png);
   background-size: contain; 
 }
 
-#derecha1{
+.derecha1{
   background-image: url(../img/derecha.png);
   background-size: contain; 
 }
