@@ -20,6 +20,7 @@ var mapa=[
 function juego(){
     console.log('Current map', mapa);
     tablero.innerHTML = ''; //limpiar tablero
+    //rotar titulo
     document.getElementById("header").style.transform = "rotate(10deg)";
     var tabla = document.createElement('table');
     tabla.border = "0";
@@ -95,10 +96,22 @@ var moveForward = function(){
     for (var i = 0; i < mapa.length; i++) {
         for (var j = 0; j < mapa[i].length; j++) {
             if(mapa[i][j]==1 && mapa[i-1][j]=="_" && mapa[i-1][j]!="*"){
-                mapa[i]=mapa[i].substring(0,1)+'_'+mapa[i].substring(2,18);
-                mapa[i-1]=mapa[i-1].substring(0,1)+'1'+mapa[i-1].substring(2,18);
-            }
-        }
+                //inicialmente i=9 j=1
+                mapa[i]=mapa[i].substring(0,j)+'_'+mapa[i].substring(j+1,18);
+                mapa[i-1]=mapa[i-1].substring(0,j)+'1'+mapa[i-1].substring(j+1,18);
+
+            }else if(mapa[i][j]==2 && mapa[i][j+1]=="_" && mapa[i][j+1]!="*"){
+                mapa[i]=mapa[i].substring(0,j)+'_2'+mapa[i].substring(j+2,18);
+
+            }else if(mapa[i][j]==3 && mapa[i+1][j]=="_" && mapa[i+1][j]!="*"){
+                mapa[i]=mapa[i].substring(0,j)+'3'+mapa[i].substring(j+1,18);
+                mapa[i-1]=mapa[i-1].substring(0,j)+'_'+mapa[i-1].substring(j+1,18);
+
+             }
+            else if(mapa[i][j]==4 && mapa[i][j-1]=="_" && mapa[i][j-1]!="*"){
+                mapa[i]=mapa[i].substring(0,j-1)+'4_'+mapa[i].substring(j,18);
+             }
+         }
     }
     juego();
 }
